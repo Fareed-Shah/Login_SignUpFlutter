@@ -26,23 +26,30 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
           Container(
             padding: EdgeInsets.only(left: 35,top: MediaQuery.of(context).size.height*0.2),
             child: Text(
-              'Welcome\nBack',
+              'Create\nAccount',
               style: TextStyle(color: Colors.white,fontSize: 33),
               ),
           ),
          
          Container(
-          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.5,
+          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.4,
           right: 35,
           left: 35),
           child: Form(
             
             child: Column(
               children: [
+                 TextFormField(
+                  decoration: InputDecoration(   
+                    hintText: 'Name',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),                                            
+                    )
+                  ),
+                ),
+                SizedBox(height: 40,),
                 TextFormField(
                   decoration: InputDecoration(   
-                   fillColor: Colors.grey.shade100,
-                    filled: true,                 
                     hintText: 'Email',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10)
@@ -53,8 +60,6 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                 TextFormField(
                   obscureText: true,
                   decoration: InputDecoration(                                        
-                    fillColor: Colors.grey.shade100,
-                    filled: true,
                     hintText: 'Password',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10)
@@ -66,8 +71,8 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Sign In',
-                      style: TextStyle(color: Color(0xff4c505b),fontSize: 27,fontWeight: FontWeight.bold),),
+                      'Sign Up',
+                      style: TextStyle(color: Colors.white,fontSize: 27,fontWeight: FontWeight.bold),),
                       CircleAvatar(
                         backgroundColor: Color(0xff4c505b),
                         radius: 30,
@@ -85,24 +90,14 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                    TextButton(onPressed: (){
 
                    }, child: Text(
-                    'Sign Up',
+                    'Sign In',
                     style: TextStyle(
                       decoration: TextDecoration.underline,
                       fontSize: 18,
-                      color: Color(0xff4c505b)
+                      color: Colors.white
                     ),
                     )),
-
-                     TextButton(onPressed: (){
-
-                   }, child: Text(
-                    'Forgot Password',
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      fontSize: 18,
-                      color: Color(0xff4c505b)
-                    ),
-                    ))
+                   
                   ],
                 )
 
