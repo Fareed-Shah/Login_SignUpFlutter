@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:login_signup/screens/signup.dart';
 
 
 class Login_Screen extends StatefulWidget {
@@ -87,7 +88,10 @@ class _Login_ScreenState extends State<Login_Screen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                    TextButton(onPressed: (){
-
+                     Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const SignUp_Screen()),
+  );
                    }, child: Text(
                     'Sign Up',
                     style: TextStyle(
