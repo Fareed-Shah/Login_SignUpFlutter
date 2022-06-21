@@ -1,6 +1,8 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
+import 'package:login_signup/screens/home.dart';
 import 'package:login_signup/screens/signup.dart';
 
 
@@ -12,7 +14,16 @@ class Login_Screen extends StatefulWidget {
 }
 
 class _Login_ScreenState extends State<Login_Screen> {
- GlobalKey formkey = GlobalKey<FormState>();
+ GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  
+ void validate(){
+  if(formkey.currentState!.validate()){
+    print('Ok');
+  }
+  else{
+    print('Error');
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +53,7 @@ class _Login_ScreenState extends State<Login_Screen> {
           left: 35),
           child: SingleChildScrollView(
             child: Form(
+              autovalidateMode: AutovalidateMode.onUserInteraction,
               key: formkey,
               child: Column(
                 children: [
@@ -54,6 +66,10 @@ class _Login_ScreenState extends State<Login_Screen> {
                         borderRadius: BorderRadius.circular(10)
                       )
                     ),
+                    validator: MultiValidator([
+                      EmailValidator(errorText: 'Enter a valid email address'),
+                      RequiredValidator(errorText: 'Enter email address')
+                      ]),
                   ),
                   SizedBox(height: 40,),
                   TextFormField(
@@ -77,10 +93,13 @@ class _Login_ScreenState extends State<Login_Screen> {
                         CircleAvatar(
                           backgroundColor: Color(0xff4c505b),
                           radius: 30,
-                          child: IconButton(onPressed: (){
-          
+                          child: IconButton(onPressed: (){                          
+                            final validform =formkey.currentState!.validate();
+                            if(validform){
+                            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Home_Screen()));
+                            }
                           }, icon: Icon(Icons.arrow_forward,color: Colors.white,)),
-                        )
+                          )
                     ],
                   ),
           
