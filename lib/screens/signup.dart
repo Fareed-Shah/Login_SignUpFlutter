@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
-
+import 'package:form_field_validator/form_field_validator.dart';
 
 class SignUp_Screen extends StatefulWidget {
   const SignUp_Screen({Key? key}) : super(key: key);
-
   @override
   State<SignUp_Screen> createState() => _SignUp_ScreenState();
 }
 
 class _SignUp_ScreenState extends State<SignUp_Screen> {
+GlobalKey<FormState> Signup_key = GlobalKey<FormState>();
+
+ void Signup_Validate(){
+  if(Signup_key.currentState!.validate()){
+    print('Ok');
+  }
+  else{
+    print('Error');
+  }
+}
+
+
+
   @override
   Widget build(BuildContext context) {
      return 
@@ -41,7 +53,8 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
           left: 35),
           child: SingleChildScrollView(
             child: Form(
-              
+              key: Signup_key,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
               child: Column(
                 children: [
                    TextFormField(
@@ -51,15 +64,23 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                         borderRadius: BorderRadius.circular(10),                                            
                       )
                     ),
+                    validator: MultiValidator([
+                      RequiredValidator(errorText: 'Enter Name'),
+                      ]),
                   ),
                   SizedBox(height: 40,),
                   TextFormField(
                     decoration: InputDecoration(   
                       hintText: 'Email',
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)
+                      borderRadius: BorderRadius.circular(10)
                       )
                     ),
+                    validator: MultiValidator([
+                      RequiredValidator(errorText: 'Enter email address'),
+                      EmailValidator(errorText: 'Enter a valid email address')
+                      
+                      ]),
                   ),
                   SizedBox(height: 40,),
                   TextFormField(
@@ -70,6 +91,10 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                         borderRadius: BorderRadius.circular(10)
                       )
                     ),
+                    validator: MultiValidator([
+                      RequiredValidator(errorText: 'Enter a Password'),
+                      MinLengthValidator(6, errorText: 'More than 6 characters required')
+                    ]),
                   ),
                   SizedBox(height: 40,),
                   Row(

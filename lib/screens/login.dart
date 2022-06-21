@@ -67,8 +67,9 @@ class _Login_ScreenState extends State<Login_Screen> {
                       )
                     ),
                     validator: MultiValidator([
-                      EmailValidator(errorText: 'Enter a valid email address'),
-                      RequiredValidator(errorText: 'Enter email address')
+                      RequiredValidator(errorText: 'Enter email address'),
+                      EmailValidator(errorText: 'Enter a valid email address')
+                      
                       ]),
                   ),
                   SizedBox(height: 40,),
@@ -82,6 +83,10 @@ class _Login_ScreenState extends State<Login_Screen> {
                         borderRadius: BorderRadius.circular(10)
                       )
                     ),
+                    validator: MultiValidator([
+                      RequiredValidator(errorText: 'Enter a Password'),
+                      MinLengthValidator(6, errorText: 'More than 6 characters required')
+                    ]),
                   ),
                   SizedBox(height: 40,),
                   Row(
