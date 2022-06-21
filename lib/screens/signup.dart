@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:login_signup/screens/home.dart';
 
 class SignUp_Screen extends StatefulWidget {
   const SignUp_Screen({Key? key}) : super(key: key);
@@ -107,6 +108,11 @@ GlobalKey<FormState> Signup_key = GlobalKey<FormState>();
                           backgroundColor: Color(0xff4c505b),
                           radius: 30,
                           child: IconButton(onPressed: (){
+
+                           final validform =Signup_key.currentState!.validate();
+                            if(validform){
+                            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Home_Screen()));
+                            }  
           
                           }, icon: Icon(Icons.arrow_forward,color: Colors.white,)),
                         )
