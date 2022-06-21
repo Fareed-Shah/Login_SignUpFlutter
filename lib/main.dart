@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_signup/screens/login.dart';
+import 'package:login_signup/screens/signup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
    return MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: Login_Screen(),
+    home: SignUp_Screen(),
    );
   }
 }

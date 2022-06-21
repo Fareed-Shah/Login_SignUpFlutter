@@ -61,8 +61,19 @@ GlobalKey<FormState> Signup_key = GlobalKey<FormState>();
                    TextFormField(
                     decoration: InputDecoration(   
                       hintText: 'Name',
+                      hintStyle: TextStyle(
+                        color: Colors.white
+                      ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),                                            
+                      borderRadius: BorderRadius.circular(10),                                            
+                      ),
+                        focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.black)
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.white)
                       )
                     ),
                     validator: MultiValidator([
@@ -73,8 +84,19 @@ GlobalKey<FormState> Signup_key = GlobalKey<FormState>();
                   TextFormField(
                     decoration: InputDecoration(   
                       hintText: 'Email',
+                      hintStyle: TextStyle(
+                        color: Colors.white
+                      ),                      
                       border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)
+                      borderRadius: BorderRadius.circular(10),                      
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.black)
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.white)
                       )
                     ),
                     validator: MultiValidator([
@@ -88,9 +110,21 @@ GlobalKey<FormState> Signup_key = GlobalKey<FormState>();
                     obscureText: true,
                     decoration: InputDecoration(                                        
                       hintText: 'Password',
+                      hintStyle: TextStyle(
+                        color: Colors.white
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.black)
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.white)
                       )
+
                     ),
                     validator: MultiValidator([
                       RequiredValidator(errorText: 'Enter a Password'),
@@ -112,13 +146,11 @@ GlobalKey<FormState> Signup_key = GlobalKey<FormState>();
                            final validform =Signup_key.currentState!.validate();
                             if(validform){
                             Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Home_Screen()));
-                            }  
-          
+                            }            
                           }, icon: Icon(Icons.arrow_forward,color: Colors.white,)),
                         )
                     ],
-                  ),
-          
+                  ),          
                   SizedBox(height: 40,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
