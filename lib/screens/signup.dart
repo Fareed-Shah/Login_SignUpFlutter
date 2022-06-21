@@ -18,13 +18,17 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
         AssetImage('images/register.PNG'),
         fit: BoxFit.cover),
       ),
-      child: Scaffold(
+      child: Scaffold(        
+        appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       backgroundColor: Colors.transparent,
-
+      
       body: Stack(
         children: [
           Container(
-            padding: EdgeInsets.only(left: 35,top: MediaQuery.of(context).size.height*0.2),
+            padding: EdgeInsets.only(left: 35,top: MediaQuery.of(context).size.height*0.1),
             child: Text(
               'Create\nAccount',
               style: TextStyle(color: Colors.white,fontSize: 33),
@@ -32,78 +36,80 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
           ),
          
          Container(
-          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.4,
+          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.3,
           right: 35,
           left: 35),
-          child: Form(
-            
-            child: Column(
-              children: [
-                 TextFormField(
-                  decoration: InputDecoration(   
-                    hintText: 'Name',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),                                            
-                    )
-                  ),
-                ),
-                SizedBox(height: 40,),
-                TextFormField(
-                  decoration: InputDecoration(   
-                    hintText: 'Email',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)
-                    )
-                  ),
-                ),
-                SizedBox(height: 40,),
-                TextFormField(
-                  obscureText: true,
-                  decoration: InputDecoration(                                        
-                    hintText: 'Password',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)
-                    )
-                  ),
-                ),
-                SizedBox(height: 40,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Sign Up',
-                      style: TextStyle(color: Colors.white,fontSize: 27,fontWeight: FontWeight.bold),),
-                      CircleAvatar(
-                        backgroundColor: Color(0xff4c505b),
-                        radius: 30,
-                        child: IconButton(onPressed: (){
-
-                        }, icon: Icon(Icons.arrow_forward,color: Colors.white,)),
+          child: SingleChildScrollView(
+            child: Form(
+              
+              child: Column(
+                children: [
+                   TextFormField(
+                    decoration: InputDecoration(   
+                      hintText: 'Name',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),                                            
                       )
-                  ],
-                ),
-
-                SizedBox(height: 40,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                   TextButton(onPressed: (){
-
-                   }, child: Text(
-                    'Sign In',
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      fontSize: 18,
-                      color: Colors.white
                     ),
-                    )),
-                   
-                  ],
-                )
-
-              ],              
-            )            
-            ),            
+                  ),
+                  SizedBox(height: 40,),
+                  TextFormField(
+                    decoration: InputDecoration(   
+                      hintText: 'Email',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      )
+                    ),
+                  ),
+                  SizedBox(height: 40,),
+                  TextFormField(
+                    obscureText: true,
+                    decoration: InputDecoration(                                        
+                      hintText: 'Password',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      )
+                    ),
+                  ),
+                  SizedBox(height: 40,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Sign Up',
+                        style: TextStyle(color: Colors.white,fontSize: 27,fontWeight: FontWeight.bold),),
+                        CircleAvatar(
+                          backgroundColor: Color(0xff4c505b),
+                          radius: 30,
+                          child: IconButton(onPressed: (){
+          
+                          }, icon: Icon(Icons.arrow_forward,color: Colors.white,)),
+                        )
+                    ],
+                  ),
+          
+                  SizedBox(height: 40,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                     TextButton(onPressed: (){
+          
+                     }, child: Text(
+                      'Sign In',
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        fontSize: 18,
+                        color: Colors.white
+                      ),
+                      )),
+                     
+                    ],
+                  )
+          
+                ],              
+              )            
+              ),
+          ),            
          ),
           
           

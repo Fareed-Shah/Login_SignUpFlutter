@@ -40,83 +40,85 @@ class _Login_ScreenState extends State<Login_Screen> {
           padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.5,
           right: 35,
           left: 35),
-          child: Form(
-            key: formkey,
-            child: Column(
-              children: [
-                TextFormField(
-                  decoration: InputDecoration(   
-                   fillColor: Colors.grey.shade100,
-                    filled: true,                 
-                    hintText: 'Email',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)
-                    )
-                  ),
-                ),
-                SizedBox(height: 40,),
-                TextFormField(
-                  obscureText: true,
-                  decoration: InputDecoration(                                        
-                    fillColor: Colors.grey.shade100,
-                    filled: true,
-                    hintText: 'Password',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)
-                    )
-                  ),
-                ),
-                SizedBox(height: 40,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Sign In',
-                      style: TextStyle(color: Color(0xff4c505b),fontSize: 27,fontWeight: FontWeight.bold),),
-                      CircleAvatar(
-                        backgroundColor: Color(0xff4c505b),
-                        radius: 30,
-                        child: IconButton(onPressed: (){
-
-                        }, icon: Icon(Icons.arrow_forward,color: Colors.white,)),
+          child: SingleChildScrollView(
+            child: Form(
+              key: formkey,
+              child: Column(
+                children: [
+                  TextFormField(
+                    decoration: InputDecoration(   
+                     fillColor: Colors.grey.shade100,
+                      filled: true,                 
+                      hintText: 'Email',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)
                       )
-                  ],
-                ),
-
-                SizedBox(height: 40,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                   TextButton(onPressed: (){
-                     Navigator.pushReplacement(
-                    context,
-                   MaterialPageRoute(builder: (context) => const SignUp_Screen()),
-                   );
-                   }, child: Text(
-                    'Sign Up',
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      fontSize: 18,
-                      color: Color(0xff4c505b)
                     ),
-                    )),
-
+                  ),
+                  SizedBox(height: 40,),
+                  TextFormField(
+                    obscureText: true,
+                    decoration: InputDecoration(                                        
+                      fillColor: Colors.grey.shade100,
+                      filled: true,
+                      hintText: 'Password',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      )
+                    ),
+                  ),
+                  SizedBox(height: 40,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Sign In',
+                        style: TextStyle(color: Color(0xff4c505b),fontSize: 27,fontWeight: FontWeight.bold),),
+                        CircleAvatar(
+                          backgroundColor: Color(0xff4c505b),
+                          radius: 30,
+                          child: IconButton(onPressed: (){
+          
+                          }, icon: Icon(Icons.arrow_forward,color: Colors.white,)),
+                        )
+                    ],
+                  ),
+          
+                  SizedBox(height: 40,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
                      TextButton(onPressed: (){
-
-                   }, child: Text(
-                    'Forgot Password',
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      fontSize: 18,
-                      color: Color(0xff4c505b)
-                    ),
-                    ))
-                  ],
-                )
-
-              ],              
-            )            
-            ),            
+                       Navigator.push(
+                      context,
+                     MaterialPageRoute(builder: (context) => const SignUp_Screen()),
+                     );
+                     }, child: Text(
+                      'Sign Up',
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        fontSize: 18,
+                        color: Color(0xff4c505b)
+                      ),
+                      )),
+          
+                       TextButton(onPressed: (){
+          
+                     }, child: Text(
+                      'Forgot Password',
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        fontSize: 18,
+                        color: Color(0xff4c505b)
+                      ),
+                      ))
+                    ],
+                  )
+          
+                ],              
+              )            
+              ),
+          ),            
          ),
           
           
